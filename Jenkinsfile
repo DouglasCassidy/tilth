@@ -8,18 +8,7 @@ pipeline {
     stages {
         stage('fetch') {
             steps {
-                sh """
-                git checkout ${env.BRANCH_NAME}
-                mkdir samplesite
-                mv *.html samplesite/
-                """
-                }
-            }
-        }
-
-        stage('build') {
-            steps {
-                sh "docker build -t ${CONTAINER_NAME} ."
+                sh "docker build -t" ${CONTAINER_NAME}"
             }
         }
         stage('deploy') {
