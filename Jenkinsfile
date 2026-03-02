@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('fetch') {
             steps {
-                sh "docker build -t" ${CONTAINER_NAME}"
+                sh "docker build -t" ${CONTAINER_NAME}."
             }
         }
         stage('deploy') {
