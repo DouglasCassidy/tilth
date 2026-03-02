@@ -11,7 +11,7 @@ pipeline {
                 sh """
                 git checkout ${env.BRANCH_NAME}
                 mkdir samplesite
-                mv *.html samplesite/""""
+                mv *.html samplesite/"""
             }
         }
         stage('build') {
