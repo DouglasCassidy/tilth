@@ -16,7 +16,7 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh "docker build -t" ${CONTAINER_NAME} ."
+                sh "docker build -t ${CONTAINER_NAME} ."
             }
         }
         stage('deploy') {
