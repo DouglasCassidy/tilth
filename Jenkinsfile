@@ -8,17 +8,15 @@ pipeline {
     stages {
         stage('fetch') {
             steps {
-                sh "docker build -t" ${CONTAINER_NAME}."
+                sh "docker build -t" ${CONTAINER_NAME}"
             }
         }
         stage('deploy') {
             steps {
                 sh """
-<<<<<<< HEAD
-                docker stop ${CONTAINER_NAME} || true && docker run ${CONTAINER_NAME} || true
+                docker stop ${CONTAINER_NAME} || true && docker rm ${CONTAINER_NAME} || true
                 docker run -dit --name ${CONTAINER_NAME} -p ${env.BRANCH_NAME == 'main' ? '8000': '8001'}:80 ${CONTAINER_NAME}
                 """"
-=======
             }
         }
         stage('cleanup') {
