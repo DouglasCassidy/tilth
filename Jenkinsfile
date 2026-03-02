@@ -16,6 +16,7 @@ pipeline {
                 sh """
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 docker stop ${CONTAINER_NAME} || true && docker run ${CONTAINER_NAME} || true
                 docker run -dit --name ${CONTAINER_NAME} -p ${env.BRANCH_NAME == 'main' ? '8000': '8001'}:80 ${CONTAINER_NAME}
                 """"
@@ -27,6 +28,10 @@ pipeline {
                 docker stop ${CONTAINER_NAME} || true && docker rm ${CONTAINER_NAME} || true
                 docker run -dit --name ${CONTAINER_NAME} -p ${env.BRANCH_NAME == 'main' ? '8000': '8001'}:80 ${CONTAINER_NAME}""""
 >>>>>>> 012c651 (Added Jenkinsfile)
+=======
+                docker stop ${CONTAINER_NAME} || true && docker rm ${CONTAINER_NAME} || true
+                docker run -dit --name ${CONTAINER_NAME} -p ${env.BRANCH_NAME == 'main' ? '8000': '8001'}:80 ${CONTAINER_NAME}""""
+>>>>>>> 5e61571 (Added Jenkinsfile)
             }
         }
         stage('cleanup') {
