@@ -11,8 +11,7 @@ pipeline {
                 sh """
                 git checkout ${env.BRANCH_NAME}
                 mkdir samplesite
-                mv *.html samplesite/
-                """"
+                mv *.html samplesite/"""
             }
         }
         stage('build') {
@@ -24,8 +23,7 @@ pipeline {
             steps {
                 sh """
                 docker stop ${CONTAINER_NAME} || true && docker rm ${CONTAINER_NAME} || true
-                docker run -dit --name ${CONTAINER_NAME} -p ${env.BRANCH_NAME == 'main' ? '8000': '8001'}:80 ${CONTAINER_NAME}
-                """"
+                docker run -dit --name ${CONTAINER_NAME} -p ${env.BRANCH_NAME == 'main' ? '8000': '8001'}:80 ${CONTAINER_NAME}""""
             }
         }
         stage('cleanup') {
