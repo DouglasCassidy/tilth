@@ -10,7 +10,7 @@ pipeline {
             steps {
                 sh """
                 git checkout ${env.BRANCH_NAME}
-                mkdir -p samplesite
+                mkdir samplesite
                 mv *.html samplesite/"""
             }
         }
