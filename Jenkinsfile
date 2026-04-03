@@ -10,8 +10,8 @@ pipeline {
             steps {
                 sh """
                 git checkout ${env.BRANCH_NAME}
-                mkdir samplesite
-                mv *.html sampleste/"""
+                mkdir -p samplesite
+                mv *.html samplesite/"""
             }
         }
         stage('build') {
